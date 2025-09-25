@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 370px;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            position: relative;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px 40px 12px 12px;
+            border-radius: 25px;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            outline: none;
+        }
+
+        .input-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        .input-group select option {
+            background-color: #111;
+            color: white;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            box-shadow: 0 0 5px #00ffff;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+        }
+
+        .options input {
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #00ffff;
+            color: black;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .switch a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #register-form {
+            display: none;
+        }
+
+        #toggle:checked~.container #login-form {
+            display: none;
+        }
+
+        #toggle:checked~.container #register-form {
+            display: block;
+        }
+
+        #toggle {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" id="toggle">
+
+    <div class="container">
+
+        <!-- Login Form -->
+        <form id="login-form">
+            <div class="form-title">Login</div>
+            <div class="input-group">
+                <input type="text" placeholder="Username" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+            <div class="switch">Don't have an account? <label for="toggle"><a>Register</a></label></div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form">
+            <div class="form-title">Register</div>
+            <div class="input-group">
+                <input type="text" placeholder="First Name" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Last Name" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="input-group">
+                <input type="tel" placeholder="Phone Number" required>
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="input-group">
+                <select required>
+                    <option value="">Select Country Code</option>
+                    <option value="+92">+92 Pakistan</option>
+                    <option value="+91">+91 India</option>
+                    <option value="+1">+1 USA</option>
+                    <option value="+44">+44 UK</option>
+                    <option value="+98">+98 Iran</option>
+                    <option value="+93">+93 Afghanistan</option>
+                    <option value="+964">+964 Iraq</option>
+                    <option value="+86">+86 China</option>
+                </select>
+                <i class="fas fa-globe"></i>
+            </div>
+            <button type="submit">Register</button>
+            <div class="switch">Already have an account? <label for="toggle"><a>Login</a></label></div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
